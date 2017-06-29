@@ -10,12 +10,12 @@ import Cache
 
 // MARK: - caches
 private struct Caches {
-    static let imageCache = SpecializedCache<UIImage>(name: "image Cache")
+    static let imageCache = SpecializedCache<UIImage>(name: "Image Cache")
 }
 
 // MARK: - keys
 private struct Keys {
-    static let image = "image"
+    static let image = "Image"
 }
 
 struct Storage {

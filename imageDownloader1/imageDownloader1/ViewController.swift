@@ -23,12 +23,16 @@ class ViewController: UIViewController {
         if Storage.image != nil {
             Storage.image = nil
         }
+        imageView.image = nil
         getImage()
     }
     
-    // просто очищаем кэш
+    // очищаем кэш
     @IBAction private func clearCache(_ sender: UIBarButtonItem) {
-        Storage.image = nil
+        if Storage.image != nil {
+            Storage.image = nil
+            imageView.image = nil
+        }
     }
     
     // MARK: - internal functions
@@ -39,7 +43,7 @@ class ViewController: UIViewController {
             spinner.stopAnimating()
             imageView.image = Storage.image
         } else {
-            ImageDownloader.fetchImage(with: url) {image in
+            ImageDownloader.fetchImage(with: url) { image in
                 Storage.image = image
                 self.getImage()
             }
