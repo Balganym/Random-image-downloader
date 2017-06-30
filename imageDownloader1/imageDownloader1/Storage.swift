@@ -27,9 +27,9 @@ struct Storage {
         }
         set {
             if let curImage = newValue {
-               try! Caches.imageCache.addObject(curImage, forKey: Keys.image)
+                Caches.imageCache.async.addObject(curImage, forKey: Keys.image)
             } else {
-                try! Caches.imageCache.removeObject(forKey: Keys.image)
+                Caches.imageCache.async.removeObject(forKey: Keys.image)
             }
         }
     }
